@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
+import jp.matsuura.makehabitandroidapp.ui.home.HomeScreen
 import jp.matsuura.makehabitandroidapp.ui.theme.MakeHabitAndroidAppTheme
 
 @AndroidEntryPoint
@@ -22,10 +23,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MakeHabitAndroidAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    HomeScreen()
                 }
             }
         }
