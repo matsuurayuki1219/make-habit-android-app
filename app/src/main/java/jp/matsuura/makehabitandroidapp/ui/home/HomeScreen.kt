@@ -16,9 +16,10 @@ import jp.matsuura.makehabitandroidapp.R
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
+    onFabClicked: () -> Unit,
 ) {
     HomeScreen(
-        onFabClicked = {},
+        onFabClicked = onFabClicked,
     )
 }
 

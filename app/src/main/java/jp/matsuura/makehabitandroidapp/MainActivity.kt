@@ -11,7 +11,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import jp.matsuura.makehabitandroidapp.ui.AppNavHost
+import jp.matsuura.makehabitandroidapp.ui.HabitSelection
+import jp.matsuura.makehabitandroidapp.ui.Home
+import jp.matsuura.makehabitandroidapp.ui.habit_selection.HabitSelectionScreen
 import jp.matsuura.makehabitandroidapp.ui.home.HomeScreen
 import jp.matsuura.makehabitandroidapp.ui.theme.MakeHabitAndroidAppTheme
 
@@ -23,25 +30,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             MakeHabitAndroidAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    HomeScreen()
+                    val navController = rememberNavController()
+                    AppNavHost(
+                        modifier = Modifier.padding(innerPadding),
+                        navController = navController,
+                    )
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MakeHabitAndroidAppTheme {
-        Greeting("Android")
     }
 }
