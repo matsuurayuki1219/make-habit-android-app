@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.kapt)
     alias(libs.plugins.hilt.android)
+    alias(libs.plugins.serialization)
 }
 
 android {
@@ -73,4 +74,17 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
+
+    // navigation
+    implementation(libs.androidx.navigation.compose)
+
+    // json
+    implementation(libs.kotlinx.serialization.json)
+
+    // database
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler)
+
 }
